@@ -1,0 +1,3 @@
+[submodule "Common/DriveProtocol"]
+	path = Common/DriveProtocol
+	url = http://git.syt.com/NO3/StepperDriveProtocol.git
