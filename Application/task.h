@@ -10,6 +10,10 @@
 extern "C" {
 #endif /* __cplusplus */
 
+#include <stdint.h>
+
+#include "com_slave.h"
+
 void TSK_Init(void);
 
 void TSK_MainLoop(void);
@@ -19,6 +23,8 @@ void TSK_ControlLoop(void);
 void TSK_SafetyLoopHF(void);
 
 void TSK_SafetyLoopLF(void);
+
+uint8_t TSK_CommunicationResponse(COMS_MOTOR_t* pMotorData);
 
 #ifdef __cplusplus
 }
