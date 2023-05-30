@@ -9,6 +9,7 @@
 #include "mcu_port.h"
 #include "state_machine.h"
 #include "task.h"
+#include "trajectory.h"
 
 static COMSTL_Handle_t SlaveTransportLayer = 
 {
@@ -39,3 +40,19 @@ static STM_Handle_t state_machine =
     .error_codes.uint32 = 0,
 };
 STM_Handle_t* pStateMachine = &state_machine;
+
+static TRAJ_Handle_t trajectory =
+{
+    .planning_segment          = TRAJ_ACC,
+    .start_position            = 0,
+    .current_position          = 0,
+    .target_position           = 0,
+    .current_velocity          = 0,
+    .target_velocity           = 1,
+    .target_acceleration       = 0,
+    .acceleration_displacement = 0,
+    .direction_cw              = false,
+    .direction_ccw             = false,
+    .index                     = 0,
+};
+TRAJ_Handle_t* pTrajectory = &trajectory;

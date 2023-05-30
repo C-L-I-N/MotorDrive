@@ -13,6 +13,7 @@ extern "C" {
 
 #include "com_slave.h"
 #include "state_machine.h"
+#include "trajectory.h"
 
 #define FW_MAJOR_VERSION (2U)
 #define FW_MINOR_VERSION (0U)
@@ -20,6 +21,7 @@ extern "C" {
 
 extern COMS_Handle_t* pCommunication;
 extern STM_Handle_t* pStateMachine;
+extern TRAJ_Handle_t* pTrajectory;
 
 #ifdef __cplusplus
 }
