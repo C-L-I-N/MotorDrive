@@ -17,13 +17,16 @@ enable_testing()
 
 AUX_SOURCE_DIRECTORY(Application APPLICATION_DIR_LIST)
 AUX_SOURCE_DIRECTORY(Platforms/VirtualPlatform VIRTUAL_PLATFORM_DIR_LIST)
+AUX_SOURCE_DIRECTORY(Middleware/Algorithm ALGORITHM_DIR_LIST)
 add_library(motor_drive_lib ${APPLICATION_DIR_LIST}
                             ${VIRTUAL_PLATFORM_DIR_LIST}
+                            ${ALGORITHM_DIR_LIST}
                             ${CMAKE_CURRENT_LIST_DIR}/Common/DriveProtocol/src/crc8.c
                             ${CMAKE_CURRENT_LIST_DIR}/Common/DriveProtocol/src/com_slave.c)
 
 target_include_directories(motor_drive_lib PUBLIC ${CMAKE_CURRENT_LIST_DIR}/Application
                                                   ${CMAKE_CURRENT_LIST_DIR}/Platforms
+                                                  ${CMAKE_CURRENT_LIST_DIR}/Middleware/Algorithm
                                                   ${CMAKE_CURRENT_LIST_DIR}/Common/DriveProtocol/inc)
 
 add_subdirectory(Tests)

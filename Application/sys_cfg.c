@@ -10,6 +10,7 @@
 #include "state_machine.h"
 #include "task.h"
 #include "trajectory.h"
+#include "controller.h"
 
 static COMSTL_Handle_t SlaveTransportLayer = 
 {
@@ -56,3 +57,35 @@ static TRAJ_Handle_t trajectory =
     .index                     = 0,
 };
 TRAJ_Handle_t* pTrajectory = &trajectory;
+
+static CTRL_Handle_t controller =
+{
+    .position_loop_kp       = 60,
+    .position_loop_ki       = 5,
+    .velocity_loop_kd       = 80,
+    .controller_error       = 0,
+    .prev_position_feedback = 0,
+    .position_differential  = 0,
+    .filter                 = 
+    {
+        .alpha  = 10,
+        .output = 0,
+    },
+    .velocity_feedback        = 0,
+    .integral_term            = 0,
+    .upper_output_limit       = 250,
+    .output_limit_flag        = false,
+    .controller_output        = 0,
+    .voltage_angle            = 0,
+    .voltage_electrical_angle = 
+    {
+        .alpha = 0,
+        .beta  = 0,
+    },
+    .output_voltage = 
+    {
+        .alpha = 0,
+        .beta  = 0,
+    },
+};
+CTRL_Handle_t* pController = &controller;
