@@ -11,6 +11,7 @@
 #include "task.h"
 #include "trajectory.h"
 #include "controller.h"
+#include "homing.h"
 
 static COMSTL_Handle_t SlaveTransportLayer = 
 {
@@ -89,3 +90,14 @@ static CTRL_Handle_t controller =
     },
 };
 CTRL_Handle_t* pController = &controller;
+
+static HOME_Handle_t homing =
+{
+    .state                          = HOME_INIT,
+    .counter                        = 0,
+    .wait_counter                   = 0,
+    .target_position                = 0,
+    .homing_velocity                = 1,
+    .fGetPhotoelectricSwitchIoLevel = HOME_GetPhotoelectricSwitchIoLevel,
+};
+HOME_Handle_t* pHoming = &homing;

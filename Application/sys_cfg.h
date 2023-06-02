@@ -15,6 +15,7 @@ extern "C" {
 #include "state_machine.h"
 #include "trajectory.h"
 #include "controller.h"
+#include "homing.h"
 
 #define FW_MAJOR_VERSION (2U)
 #define FW_MINOR_VERSION (0U)
@@ -24,6 +25,7 @@ extern COMS_Handle_t* pCommunication;
 extern STM_Handle_t* pStateMachine;
 extern TRAJ_Handle_t* pTrajectory;
 extern CTRL_Handle_t* pController;
+extern HOME_Handle_t* pHoming;
 
 #ifdef __cplusplus
 }

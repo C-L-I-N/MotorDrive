@@ -17,6 +17,8 @@ void COM_Slave_UART_Init(void *pHW_Handle);
 
 void COM_Slave_SetTimerISR(void *pHW_Handle, uint32_t Us);
 
+bool HOME_GetPhotoelectricSwitchIoLevel(void);
+
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */

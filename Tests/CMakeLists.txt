@@ -31,7 +31,18 @@ target_link_libraries(
     GTest::gtest_main
 )
 
+add_executable(
+    homing_test
+    homing_test.cpp
+)
+target_link_libraries(
+    homing_test
+    PUBLIC motor_drive_lib
+    GTest::gtest_main
+)
+
 include(GoogleTest)
 gtest_discover_tests(state_machine_test)
 gtest_discover_tests(trajectory_test)
 gtest_discover_tests(controller_test)
+gtest_discover_tests(homing_test)
